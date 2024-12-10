@@ -1,0 +1,18 @@
+#topNavBarDiv {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 25px 10px;
+}
+
+.topNavBarLink {
+    background-color: var(--fadedColor);
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: filter .3s, border .3s;
+    border: 1px solid var(--fadedColor);
+}
+.topNavBarLink:hover {
+    filter: brightness(1.2);
+    border: 1px solid var(--textSecondary);
+}
