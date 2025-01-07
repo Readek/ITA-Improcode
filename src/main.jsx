@@ -7,6 +7,7 @@ import "./assets/global.css"
 import MapPage from './pages/map'
 import CalendarPage from './pages/calendar'
 import ChartsPage from './pages/charts'
+import { DataProvider } from './contexts/dataContext'
 
 const router = createHashRouter([
   {
@@ -30,6 +31,8 @@ const router = createHashRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}/>
+    <DataProvider>
+      <RouterProvider router={router}/>
+    </DataProvider>
   </StrictMode>,
 )

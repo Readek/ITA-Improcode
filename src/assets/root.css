@@ -1,0 +1,13 @@
+.crudDiv {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.crudTitle {
+    font-size: xx-large;
+    font-weight: bold;
+    border-bottom: solid 2px var(--textSecondary);
+    padding: 0px 30px;
+}

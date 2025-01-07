@@ -1,0 +1,70 @@
+#crudDialog {
+    border: 2px solid var(--fadedColor);
+    border-radius: 10px;
+    background-color: #242424;
+    padding: 15px 25px;
+    filter: drop-shadow(0px 0px 20px #00000070);
+    animation: fadeInFromTop .25s;
+
+    input {
+        border-radius: 7px;
+        border: 2px solid var(--fadedColor);
+        padding: 3px 5px;
+        transition: border-color .2s;
+        background-color: var(--interactColor);
+    }
+    input:hover {
+        border-color: var(--textSecondary);
+    }
+
+}
+
+#crudDialogContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#crudDialogTitle {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+
+.crudEditor {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.crudEditorSection {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    label {
+        font-weight: bold;
+        text-align: le;
+    }
+}
+
+.crudEditorBooks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.crudEditorRateOpen {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    .crudEditorSection {
+        align-items: center;
+    }
+    input {
+        width: 55px;
+    }
+}

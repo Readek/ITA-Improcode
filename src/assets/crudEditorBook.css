@@ -1,0 +1,12 @@
+.crudEditorBook {
+    display: flex;
+    gap: 8px;
+
+    button:hover {
+        border-color: salmon;
+    }
+}
+
+.crudEditorBookNum {
+    width: 60px;
+}
