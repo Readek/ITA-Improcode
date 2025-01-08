@@ -14,8 +14,8 @@ export default function CrudEditor({isAdding, isEditing}) {
 
     const dialogRef = useRef();
 
-    const { addNewLibrary } = useContext(DataContext);
-    const { books, setBooks } = useContext(BookEditorContext);
+    const { addNewLibrary, updateLibrary } = useContext(DataContext);
+    const { books, setBooks, getFinalBooks, initFinalBooks, addBook } = useContext(BookEditorContext);
 
     useEffect( () => {
         if (isAdding) dialogRef.current.showModal();
@@ -30,6 +30,15 @@ export default function CrudEditor({isAdding, isEditing}) {
             setIsOpen(isEditing.open);
             setLongitude(isEditing.longitude);
             setLatitude(isEditing.latitude);
+            initFinalBooks(isEditing.books);
+        } else {
+            setName("");
+            setBooks([{title:'',quantity:0}]);
+            setRating(0);
+            setIsOpen(false);
+            setLongitude(0);
+            setLatitude(0);
+            initFinalBooks([{title:'',quantity:0}]);
         }
     }, [isEditing]);
 
@@ -38,16 +47,22 @@ export default function CrudEditor({isAdding, isEditing}) {
     }
 
     function submitLibrary() {
-        if (name, books, longitude, latitude) {
+        if (name, longitude, latitude) {
 
-            addNewLibrary({
+            const dataToSend = {
                 name: name,
-                books: sdf,
+                books: getFinalBooks(),
                 rating: rating,
                 open: isOpen,
                 longitude: longitude,
                 latitude: latitude
-            });
+            }
+
+            if (isEditing) {
+                updateLibrary(isEditing._id, dataToSend);
+            } else {
+                addNewLibrary(dataToSend);
+            }
 
             dialogRef.current.close();
 
@@ -61,14 +76,14 @@ export default function CrudEditor({isAdding, isEditing}) {
     <div id="crudDialogContent">
 
         <div id="crudDialogTitle">
-            {isEditing ? "Editing library" : "Adding a new library"}
+            {isEditing ? "Editing Book Store" : "Adding a new Book Store"}
         </div>
 
         <div className="crudEditor">
 
             <div className="crudEditorSection">
-                <label>Library name</label>
-                <input type="text" value={name} placeholder="Library name" onChange={e => setName(e.target.value)} className="crudEditorInputText"/>
+                <label>Book store name</label>
+                <input type="text" value={name} placeholder="Book Store name" onChange={e => setName(e.target.value)} className="crudEditorInputText"/>
             </div>
 
             <div className="crudEditorSection">
@@ -82,12 +97,12 @@ export default function CrudEditor({isAdding, isEditing}) {
                         ></CrudEditorBook>
                     ))}
                 </div>
-                <button>Add book</button>
+                <button onClick={() => {addBook()}}>Add book</button>
             </div>
 
             <div className="crudEditorRateOpen">
                 <div className="crudEditorSection">
-                    <label>Library rating</label>
+                    <label>Store rating</label>
                     <input type="number" value={rating} placeholder="0" max={5} onChange={e => setRating(e.target.value)} className="crudEditorInputNum"/>
                 </div>
                 <div className="crudEditorSection">
@@ -110,7 +125,7 @@ export default function CrudEditor({isAdding, isEditing}) {
         </div>
 
     <button onClick={() => {submitLibrary()}}>
-        {isEditing ? "Submit library changes" : "Submit new library"}
+        {isEditing ? "Submit store changes" : "Submit new store"}
     </button>
     <button onClick={() => {hideModal()}}>Cancel</button>
 

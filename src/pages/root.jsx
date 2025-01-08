@@ -9,7 +9,7 @@ import { BookEditorProvider } from "../contexts/bookEditorContext";
 
 export default function Root() {
 
-    const { libraryData, askForLibraries } = useContext(DataContext);
+    const { libraryData, askForLibraries, areWeConnected } = useContext(DataContext);
     const [ booksInPopover, setBooksInPopover ] = useState([]);
     const [ isAdding, setIsAdding ] = useState(false);
     const [ isEditing, setIsEditing ] = useState(false);
@@ -30,7 +30,9 @@ export default function Root() {
 
     <div className="crudDiv">
 
-        <div className="crudTitle">Libraries</div>
+        {!areWeConnected && <div>Couldn't connect with backend server. Using placeholder data.</div>}
+
+        <div className="crudTitle">Book Stores</div>
 
         <table className="crudContent">
             <thead>

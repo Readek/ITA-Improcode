@@ -20,6 +20,15 @@ export async function newLibrary(data) {
     return response;
 }
 
+export async function editLibrary(id, data) {    
+    const response = await fetch(`${backendUrl}/libraries/${id}`, {
+        method: "PUT",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+    });
+    return response;
+}
+
 export async function deleteLibrary(id) {
     const response = await fetch(`${backendUrl}/libraries/${id}`, {
         method: "DELETE",
