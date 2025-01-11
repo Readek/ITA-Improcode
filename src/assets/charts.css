@@ -1,0 +1,18 @@
+#chartsContent {
+    display: flex;
+    padding: 10px 30px;
+
+    @media (max-width: 800px) {
+        flex-direction: column;
+        padding: 10px 10px;
+    }
+}
+
+.chartsChart {
+    max-width: 50%;
+    max-height: 550px;
+
+    @media (max-width: 800px) {
+        max-width: 100%;
+    }
+}

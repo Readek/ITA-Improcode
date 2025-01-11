@@ -6,7 +6,7 @@ export const placeholderLibraryData = [
             {title: "A Bunch of Pages with Characters", quantity: 55},
             {title: "Sentences, and Rarely, Images", quantity: 123}
         ],
-        rating: 3,
+        rating: 2,
         open: true,
         longitude: 123456789,
         latitude: 987654321,
@@ -34,7 +34,7 @@ export const placeholderLibraryData = [
         books: [
             {title: "The Indy Split", quantity: 31},
             {title: "Flat Out Flat Broke", quantity: 7},
-            {title: "Beyond the Limit", quantity: 999}
+            {title: "Beyond the Limit", quantity: 256}
         ],
         rating: 3,
         open: false,
@@ -56,6 +56,22 @@ export const placeholderLibraryData = [
         longitude: 890098890,
         latitude: -890009887,
         _id: "677ecbbd62ef4591267853b5",
+        createdAt: "2024-12-16T12:07:41.579Z",
+        updatedAt: "2024-12-16T12:07:41.579Z"
+    },
+    {
+        name: "Íbalis",
+        books: [
+            {title: "El Elfo Oscuro", quantity: 23},
+            {title: "Nacidos de la Bruma", quantity: 34},
+            {title: "American Gods", quantity: 45},
+            {title: "El Señor de los Anillos", quantity: 56},
+        ],
+        rating: 4,
+        open: false,
+        longitude: 1243142332,
+        latitude: 1123145534,
+        _id: "67814a70b548e92142da1479",
         createdAt: "2024-12-16T12:07:41.579Z",
         updatedAt: "2024-12-16T12:07:41.579Z"
     },

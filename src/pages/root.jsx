@@ -25,12 +25,12 @@ export default function Root() {
     }, [isAdding]);
 
     return (<>
-    
+
     <NavBar></NavBar>
 
     <div className="crudDiv">
 
-        {!areWeConnected && <div>Couldn't connect with backend server. Using placeholder data.</div>}
+        {!areWeConnected && <div>Couldn't connect with database! Using placeholder data.</div>}
 
         <div className="crudTitle">Book Stores</div>
 
@@ -58,7 +58,7 @@ export default function Root() {
         </table>
 
         <button onClick={() => {setIsAdding(true)}}>
-            Add New Library
+            Add New Book Store
         </button>
 
         <BookEditorProvider>

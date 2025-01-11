@@ -6,7 +6,7 @@ export default function BooksPopover({books}) {
 
     <div popover="auto" id="booksPopover">
         <div id='booksPopoverContent'>
-            <div id='booksPopoverTitle'>Books in this library</div>
+            <div id='booksPopoverTitle'>Books in this Book Store</div>
             {books.map(book => (
                 <div className="booksPopoverEntry" key={book.title}>
                     <div className="booksPopoverName">{book.title}</div>
