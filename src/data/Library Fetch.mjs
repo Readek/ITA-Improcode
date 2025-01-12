@@ -20,6 +20,11 @@ export async function newLibrary(data) {
     return response;
 }
 
+/**
+ * Edits requested library with the data provided
+ * @param {String} id 
+ * @param {Object} data 
+ */
 export async function editLibrary(id, data) {    
     const response = await fetch(`${backendUrl}/libraries/${id}`, {
         method: "PUT",
@@ -29,6 +34,10 @@ export async function editLibrary(id, data) {
     return response;
 }
 
+/**
+ * Deletes requested library
+ * @param {String} id 
+ */
 export async function deleteLibrary(id) {
     const response = await fetch(`${backendUrl}/libraries/${id}`, {
         method: "DELETE",
@@ -36,4 +45,11 @@ export async function deleteLibrary(id) {
         body: JSON.stringify({_id: id})
     });
     return response;
+}
+
+/** Asks for the events list */
+export async function getEvents() {
+    const data = await fetch(`${backendUrl}/events`);
+    if (!data.ok) return null;
+    return data.json();
 }

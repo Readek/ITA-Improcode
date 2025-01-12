@@ -15,6 +15,14 @@ ChartJS.register(
     ArcElement
 );
 
+const chartColors = [
+  "rgba(75, 192, 192, 0.7)",
+  "rgba(192, 75, 192, 0.7)",
+  "rgba(75, 192, 91, 0.7)",
+  "rgba(83, 75, 192, 0.7)",
+  "rgba(192, 155, 75, 0.7)",
+]
+
 export default function ChartsPage() {
 
     const { libraryData, askForLibraries, areWeConnected } = useContext(DataContext);
@@ -33,7 +41,7 @@ export default function ChartsPage() {
             datasets: [{
                 label: "Book Store Rating",
                 data: libraryData.map(library => library.rating),
-                backgroundColor: "rgba(75, 192, 192, 0.7)",
+                backgroundColor: chartColors
             }]
         });
 
@@ -48,7 +56,7 @@ export default function ChartsPage() {
                     }
                     return books;
                 }),
-                backgroundColor: "rgba(75, 192, 192, 0.7)"
+                backgroundColor: chartColors
             }]
         });
 
@@ -60,7 +68,11 @@ export default function ChartsPage() {
     <NavBar></NavBar>
 
     <div className="crudDiv">
+      
       {!areWeConnected && <div>Couldn't connect with database! Using placeholder data.</div>}
+      
+      <div className="crudTitle">Book Store Statistics</div>
+
     </div>
 
     <div id="chartsContent">

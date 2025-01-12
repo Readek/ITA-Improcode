@@ -45,7 +45,7 @@ export const placeholderLibraryData = [
         updatedAt: "2024-12-16T12:07:41.579Z"
     },
     {
-        name: "I Know Who You Are",
+        name: "I Know What You Are",
         books: [
             {title: "Warriors", quantity: 41},
             {title: "Wings of Fire", quantity: 13},
@@ -75,4 +75,22 @@ export const placeholderLibraryData = [
         createdAt: "2024-12-16T12:07:41.579Z",
         updatedAt: "2024-12-16T12:07:41.579Z"
     },
+]
+
+export const placeholderEventData = [
+    {
+        title : "¿Qué te han traido los reyes?",
+        date : "2025-01-07",
+        _id : "6784162ce3368feeed49137c"
+    },
+    {
+        title : "School's in for Winter",
+        date : "2025-01-13",
+        _id : "678416bae3368feeed49137d"
+    },
+    {
+        title : "Un evento chachi pistachi",
+        date : "2025-01-24",
+        _id: "678416e5e3368feeed49137e"
+    }
 ]

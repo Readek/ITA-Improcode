@@ -1,12 +1,13 @@
 import { createContext, useState } from "react";
-import { deleteLibrary, editLibrary, getLibraries, newLibrary } from "../data/Library Fetch.mjs";
-import { placeholderLibraryData } from "../data/Placeholder Data.mjs";
+import { deleteLibrary, editLibrary, getEvents, getLibraries, newLibrary } from "../data/Library Fetch.mjs";
+import { placeholderEventData, placeholderLibraryData } from "../data/Placeholder Data.mjs";
 
 const DataContext = createContext();
 
 function DataProvider({ children }) {
     
     const [ libraryData, setLibraryData ] = useState([]);
+    const [ eventData, setEventData ] = useState([]);
     const [ areWeConnected, setAreWeConnected ] = useState(true);
 
     async function askForLibraries() {
@@ -22,6 +23,8 @@ function DataProvider({ children }) {
     }
 
     async function addNewLibrary(data) {
+        console.log(data);
+        
         newLibrary(data).then((res) => {
             askForLibraries();
         });
@@ -39,12 +42,27 @@ function DataProvider({ children }) {
         });
     }
 
+    async function askForEvents() {
+        getEvents().then((data) => {
+            console.log(data);
+            
+            setEventData(data);
+            setAreWeConnected(true);
+        }).catch((e) => {
+            console.log(e);
+            console.log("Couldn't reach backend server. Using placeholder data.");
+            setEventData(placeholderEventData);
+            setAreWeConnected(false);
+        })
+    }
+
 
     return (
         <DataContext.Provider value={{
             libraryData: libraryData,
             askForLibraries: askForLibraries, addNewLibrary: addNewLibrary,
             removeLibrary: removeLibrary, updateLibrary: updateLibrary,
+            eventData: eventData, askForEvents: askForEvents,
             areWeConnected: areWeConnected
         }}>
             {children}
