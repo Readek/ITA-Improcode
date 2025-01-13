@@ -12,9 +12,7 @@ export default function MapPage() {
     const mapRef = useRef();
     const mapContainerRef = useRef();
 
-    useEffect(() => {
-        console.log(import.meta.env.MAPBOX_APIKEY);
-        
+    useEffect(() => {        
         mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_APIKEY;
         mapRef.current = new mapboxgl.Map({
             container: mapContainerRef.current,

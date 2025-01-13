@@ -20,6 +20,10 @@ concurrency:
   group: 'pages'
   cancel-in-progress: true
 
+#Allow repo secrets
+env:
+  VITE_MAPBOX_APIKEY: ${{ secrets.VITE_MAPBOX_APIKEY }}
+
 jobs:
   # Single deploy job since we're just deploying
   deploy:
