@@ -1,0 +1,13 @@
+#mapContent {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+#mapMap {
+    height: 700px;
+    width: 1200px;
+    max-width: 100%;
+    border-radius: 15px;
+    color: black;
+}
